@@ -15,6 +15,7 @@ body {
   line-height: 56px;
   font-weight: 700;
   margin: 0;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
 .max-width {
@@ -45,6 +46,7 @@ body {
   justify-content: space-between;
   margin: 0 auto;
   padding: 14px 32px;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .header__nav {
@@ -62,6 +64,7 @@ body {
   text-decoration: none;
   color: #333333;
   text-wrap: nowrap;
+  transition: color 0.3s, text-decoration 0.3s;
 }
 
 .header__nav ul li a:hover {
@@ -98,11 +101,13 @@ body {
   font-weight: 700;
   font-size: 16px;
   justify-self: end;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
 .header__button:hover {
   background-color: #03b2a5;
   color: #e6f7f9;
+  transform: translateY(-2px);
 }
 
 .header__burger {
@@ -142,15 +147,18 @@ body {
   letter-spacing: 0;
   white-space: nowrap;
   margin: 4px 6px;
+  transition: all 0.3s ease;
 }
 
 .filters-button:hover {
   outline: 2px solid #16c8bb;
+  transform: translateY(-2px);
 }
 
 .filters__button--active {
   border-color: #16c8bb;
   border-width: 2px;
+  animation: pulse 1s ease-in-out 1;
 }
 
 .articles {
@@ -163,6 +171,7 @@ body {
   gap: 24px;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-template-rows: 499px;
+  animation: slideInFromTop 0.8s ease-in-out;
 }
 
 .articles-three {
@@ -174,6 +183,7 @@ body {
   overflow: hidden;
   gap: 24px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  animation: slideInFromTop 0.8s ease-in-out;
 }
 
 .articles-card {
@@ -184,6 +194,12 @@ body {
   overflow: hidden;
   min-width: 0;
   width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.articles-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .articles-card__image {
@@ -194,6 +210,11 @@ body {
   object-fit: cover;
   object-position: center;
   min-width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.articles-card:hover .articles-card__image {
+  transform: scale(1.05);
 }
 
 .articles-card__tags {
@@ -258,10 +279,13 @@ body {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .pagination__button:hover {
   background-color: #017a6d;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .footer {
@@ -302,6 +326,7 @@ body {
   text-decoration: none;
   white-space: nowrap;
   text-align: left;
+  transition: color 0.3s, text-decoration 0.3s;
 }
 
 .footer .footer__section a:hover {
@@ -341,6 +366,12 @@ body {
   height: 100%;
   border-radius: 0;
   flex: 320px 0 0;
+  transition: border-color 0.3s;
+}
+
+.footer .footer__section input[type="email"]:focus {
+  border-color: #16c8bb;
+  outline: none;
 }
 
 .footer .footer__section button {
@@ -353,11 +384,12 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-  transition: background 0.2s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .footer__section button:hover {
   background-color: #12978d;
+  transform: translateY(-2px);
 }
 
 .footer .footer__section button img {
@@ -394,6 +426,15 @@ body {
 .footer .footer__social-icons img {
   width: 30px;
   height: 30px;
+}
+
+.footer .footer__social-icons a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.footer .footer__social-icons a:hover {
+  transform: translateY(-3px) scale(1.1);
 }
 
 .footer hr {
@@ -671,4 +712,128 @@ body {
   .footer .footer__section.footer__icons {
     gap: 20px;
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.header__content {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.header__nav ul li a {
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.header__button {
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.header__button:hover {
+  transform: translateY(-2px);
+}
+
+.filters-button {
+  transition: all 0.3s ease;
+}
+
+.filters-button:hover {
+  transform: translateY(-2px);
+}
+
+.filters__button--active {
+  animation: pulse 1s ease-in-out 1;
+}
+
+.articles-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.articles-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.articles-card__image {
+  transition: transform 0.5s ease;
+}
+
+.articles-card:hover .articles-card__image {
+  transform: scale(1.05);
+}
+
+.pagination__button {
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.pagination__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer .footer__section a {
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.footer .footer__section button {
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.footer .footer__section button:hover {
+  transform: translateY(-2px);
+}
+
+.footer .footer__social-icons a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.footer .footer__social-icons a:hover {
+  transform: translateY(-3px) scale(1.1);
+}
+
+.footer .footer__section input[type="email"] {
+  transition: border-color 0.3s;
+}
+
+.footer .footer__section input[type="email"]:focus {
+  border-color: #16c8bb;
+  outline: none;
+}
+
+.main-container__header {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.articles, .articles-three {
+  animation: slideInFromTop 0.8s ease-in-out;
 }
